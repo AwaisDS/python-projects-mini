@@ -1,6 +1,7 @@
 from students import Student
 
 def menu():
+
     while True:
         print("----------------Student Management system------------")
         print("\n 1.add student:")
@@ -10,15 +11,16 @@ def menu():
         
         try:
             choice=int(input("Enter your choice:"))
-        except:
+        except ValueError:
             print("enter valid choice 1-4")
+            continue
 
         if choice==1:
-            Student.add_student(Student)
+            Student.add_student()
         elif choice == 2 :
-            Student.update_student_marks(Student)
+            Student.update_student_marks()
         elif choice == 3:
-            Student.show_all_students(Student)
+            Student.show_all_students()
         elif choice == 4 :
             print("Exiting the program...")
             break
