@@ -16,17 +16,18 @@ class Student:
         return student
     
     @classmethod
-    def update_student_marks(cls):
+    def update_student_marks(cls,student):
         roll_no=input("Enter student roll number to update marks:")
         new_marks=input("Enter new marks:")
         for student in cls.all_Students:
-            if student.roll_no==roll_no:
+            if not student.roll_no.isdigit():
+                return "Invalid roll number"
+            elif student.roll_no==roll_no:
                 student.marks=new_marks
-                return f"{student.name}'s marks updated successfully"
-        return "student not found"
+                print(f"{student.name}'s marks updated successfully")
     
     @classmethod
-    def show_all_students(cls):
+    def show_all_students(cls,student):
         if not cls.all_Students:
             return "No student founds"
         for student in cls.all_Students:
